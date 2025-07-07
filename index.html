@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="picture/icon1.jpg" type="image/x-icon">
+    <title>Pet House - Chăm sóc thú cưng chuyên nghiệp</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 2em;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
+            animation: slideIn 1.2s ease-out;
+        }
+        header p {
+            animation: slideIn 1.4s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        nav {
+            background-color: #333;
+            padding: 1em;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        .services, .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .service-card, .gallery-item {
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover, .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .service-card img, .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover img, .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.1);
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5em;
+            position: relative;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        footer.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        .features ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pet House</h1>
+        <p>Ngôi nhà thứ hai của thú cưng - Cún miu thả ga</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Tổng quan</a></li>
+            <li><a href="#features">Tính năng</a></li>
+            <li><a href="#gallery">Trưng bày</a></li>
+            <li><a href="#services">Dịch vụ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="overview">
+            <h2>Tổng quan</h2>
+            <p>Pet House được thành lập bởi nhóm bạn trẻ yêu thú cưng, với mục tiêu mang đến dịch vụ chăm sóc chuyên nghiệp cho chó, mèo và các thú cưng khác. Chúng tôi không chỉ cung cấp dịch vụ spa, tắm rửa, cắt tỉa lông mà còn hướng tới xây dựng một hệ sinh thái toàn diện, từ chăm sóc sức khỏe đến lưu trú và phụ kiện. Với slogan “Pet House là nhà – Cún miu thả ga”, chúng tôi cam kết mang lại sự an tâm và niềm vui cho cả thú cưng và chủ nuôi.</p>
+            <p><strong>Sứ mệnh:</strong> Cung cấp dịch vụ tận tâm, an toàn; tạo môi trường làm việc chuyên nghiệp cho nhân viên; và lan tỏa văn hóa yêu thương động vật.</p>
+        </section>
+
+        <section id="features">
+            <h2>Tính năng nổi bật</h2>
+            <ul>
+                <li>Phòng chăm sóc riêng biệt, an toàn và sạch sẽ.</li>
+                <li>Thực phẩm cao cấp, phù hợp từng giống thú cưng.</li>
+                <li>Đội ngũ nhân viên được đào tạo chuyên sâu, thân thiện với động vật.</li>
+                <li>Dịch vụ 24/7 với camera giám sát và chăm sóc tại nhà.</li>
+                <li>Hệ thống quản lý khách hàng chuyên nghiệp, tích điểm và đặt lịch online.</li>
+            </ul>
+        </section>
+
+        <section id="gallery">
+            <h2>Trưng bày</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="picture/LUUTRU.jpg" alt="Thú cưng vui vẻ">
+                    <p>Thú cưng thư giãn tại khu vui chơi</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="picture/LUUTRU1.jpg" alt="Spa thú cưng">
+                    <p>Dịch vụ spa cao cấp tại Pet House</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="picture/phukien.jpg" alt="Phòng lưu trú">
+                    <p>Phòng lưu trú thoải mái, sạch sẽ</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Dịch vụ</h2>
+            <div class="services">
+                <div class="service-card">
+                    <img src="picture/LUUTRU2.jpg" alt="Cắt tỉa lông">
+                    <h3>Cắt tỉa lông</h3>
+                    <p>Các gói từ cơ bản đến tạo kiểu chuyên sâu cho Poodle, Shih Tzu, v.v.</p>
+                    <button onclick="alert('Liên hệ để đặt lịch cắt tỉa lông!')">Đặt lịch</button>
+                </div>
+                <div class="service-card">
+                    <img src="picture/PETHOUSE.jpg" alt="Spa thú cưng">
+                    <h3>Spa & Tắm sấy</h3>
+                    <p>Tắm gội, vệ sinh tai/mắt, massage thư giãn cho thú cưng mọi kích cỡ.</p>
+                    <button onclick="alert('Liên hệ để đặt lịch spa!')">Đặt lịch</button>
+                </div>
+                <div class="service-card">
+                    <img src="picture/BANNER (1).jpg" alt="Lưu trú">
+                    <h3>Lưu trú</h3>
+                    <p>Phòng cơ bản đến cao cấp, có camera giám sát và chăm sóc đặc biệt.</p>
+                    <button onclick="alert('Liên hệ để đặt phòng lưu trú!')">Đặt lịch</button>
+                </div>
+                <div class="service-card">
+                    <img src="picture/phukien1.jpg" alt="Phụ kiện">
+                    <h3>Phụ kiện</h3>
+                    <p>Bát ăn, dây dắt, đồ chơi, quần áo và sản phẩm chăm sóc đa dạng.</p>
+                    <button onclick="alert('Liên hệ để xem danh mục phụ kiện!')">Xem thêm</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Pet House</p>
+        <p>Địa chỉ: 154/216 Âu Dương Lân, Phường Rạch Ông, Quận 8, TP. Hồ Chí Minh</p>
+        <p>Số điện thoại: (+84) 792836489</p>
+        <p>Email: <a href="mailto:pethousduonglan@gmail.com" style="color: #4CAF50;">pethousduonglan@gmail.com</a></p>
+        <p>Website: <a href="https://pethousetphcm.vn" style="color: #4CAF50;">pethousetphcm.vn</a></p>
+        <p>© 2025 Pet House. Mọi quyền được bảo lưu.</p>
+    </footer>
+
+    <script>
+        // Scroll animation for sections and footer
+        const sections = document.querySelectorAll('section, footer');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
